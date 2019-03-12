@@ -8,11 +8,11 @@ import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/Delete";
 import "./styles.css";
 
-const TodoList = ({todos, deleteTodo}) => (
+const TodoList = ({ todos, deleteTodo }) => (
     <List className="List">
         {todos.map((todo, index) => (
             <ListItem key={index.toString()} dense button>
-                <Checkbox tabIndex={-1} disableRipple/>
+                <Checkbox tabIndex={-1} />
                 <ListItemText primary={todo}/>
                 <ListItemSecondaryAction>
                     <IconButton
