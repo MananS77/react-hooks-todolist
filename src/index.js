@@ -5,15 +5,18 @@ import "./styles.css";
 import * as serviceWorker from "./serviceWorker";
 import TodoForm from "./TodoForm";
 import TodoList from "./TodoList";
-
+import DoneTodoList from "./DoneTodoList";
 
 const App = () => {
     const [todos, setTodos] = useState([]);
+    const [doneTodos, setDoneTodos] = useState([]);
+
     return (
         <div className="App">
-            <Typography component="h1" variant="h2">
+            <Typography component="h1" variant="h2" className="Title">
                 Todo List
             </Typography>
+
             <TodoForm
                 className="AddBox"
                 saveTodo={todoText => {
@@ -23,13 +26,41 @@ const App = () => {
                     }
                 }}
             />
+
             <TodoList
                 todos={todos}
                 deleteTodo={todoIndex => {
                     const updatedTodos = todos.filter((_, index) => index !== todoIndex);
                     setTodos(updatedTodos);
                 }}
+                checkTodo={todoIndex => {
+                    const newlyDoneItem = todos[todoIndex];
+                    doneTodos.push(newlyDoneItem);
+                    setDoneTodos(doneTodos);
+                    const updatedTodos = todos.filter((_, index) => index !== todoIndex);
+                    setTodos(updatedTodos);
+                }}
             />
+
+            <hr
+                className="Ruler"
+            />
+
+            <DoneTodoList
+                todos={doneTodos}
+                deleteTodo={todoIndex => {
+                    const updatedDoneTodos = doneTodos.filter((_, index) => index !== todoIndex);
+                    setDoneTodos(updatedDoneTodos);
+                }}
+                checkTodo={todoIndex => {
+                    const undoneItem = doneTodos[todoIndex];
+                    todos.push(undoneItem);
+                    setTodos(todos);
+                    const updatedDoneTodos = doneTodos.filter((_, index) => index !== todoIndex);
+                    setDoneTodos(updatedDoneTodos);
+                }}
+            />
+
         </div>
     );
 };

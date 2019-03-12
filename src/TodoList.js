@@ -8,23 +8,30 @@ import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/Delete";
 import "./styles.css";
 
-const TodoList = ({ todos, deleteTodo }) => (
+const TodoList = ({todos, deleteTodo, checkTodo}) => (
     <List className="List">
         {todos.map((todo, index) => (
-            <ListItem key={index.toString()} dense button>
-                <Checkbox tabIndex={-1} />
-                <ListItemText primary={todo}/>
-                <ListItemSecondaryAction>
-                    <IconButton
-                        aria-label="Delete"
-                        onClick={() => {
-                            deleteTodo(index);
+            <React.Fragment>
+                <ListItem key={index.toString()} dense button>
+                    <Checkbox
+                        onChange={() => {
+                            checkTodo(index);
                         }}
-                    >
-                        <DeleteIcon />
-                    </IconButton>
-                </ListItemSecondaryAction>
-            </ListItem>
+                        tabIndex={-1}
+                    />
+                    <ListItemText primary={todo}/>
+                    <ListItemSecondaryAction>
+                        <IconButton
+                            aria-label="Delete"
+                            onClick={() => {
+                                deleteTodo(index);
+                            }}
+                        >
+                            <DeleteIcon />
+                        </IconButton>
+                    </ListItemSecondaryAction>
+                </ListItem>
+            </React.Fragment>
         ))}
     </List>
 );

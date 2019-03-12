@@ -17,7 +17,7 @@ const TodoForm = ({saveTodo}) => {
             <TextField
                 autoFocus
                 variant="outlined"
-                placeholder="Add todo"
+                placeholder="Add a todo..."
                 margin="normal"
                 onChange={event => {
                     setValue(event.target.value);

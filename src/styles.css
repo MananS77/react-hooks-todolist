@@ -7,6 +7,7 @@
     vertical-align: middle;
     opacity: .54;
     background-color: rgb(203, 240, 248);
+    border-radius: 20px;
 }
 
 .App .AddBox {
@@ -16,4 +17,24 @@
 .App .List {
     padding: 0;
     background-color: rgb(253, 207, 232);
+    border-radius: 20px;
+}
+
+.App .DoneList {
+    padding: 0;
+    background-color: #BCD2C8;
+    border-radius: 20px;
+}
+
+.ListItemStrikeThrough {
+    text-decoration: line-through;
+}
+
+.Ruler {
+    padding: 0;
+}
+
+.Title {
+    padding-left: 4px;
+    padding-top: 4px;
 }
