@@ -1,15 +1,19 @@
 .App {
     font-size: 22px;
     line-height: 24px;
-    padding-left: 8px;
+    padding: 8px;
     position: relative;
     top: -1.5px;
     vertical-align: middle;
     opacity: .54;
-    background-color: rgb(253, 207, 232);
+    background-color: rgb(203, 240, 248);
 }
 
-.AddBox {
-
+.App .AddBox {
     text-align: center;
+}
+
+.App .List {
+    padding: 0;
+    background-color: rgb(253, 207, 232);
 }
