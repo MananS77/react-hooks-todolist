@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import Typography from "@material-ui/core/Typography";
 import "./styles.css";
@@ -10,11 +10,19 @@ import DoneTodoList from "./DoneTodoList";
 const App = () => {
     const [todos, setTodos] = useState([]);
     const [doneTodos, setDoneTodos] = useState([]);
+    const appStyle = {
+        position: 'fixed',
+        top: '0',
+        left: '0',
+        bottom: '0',
+        right: '0',
+        overflow: 'auto'
+    };
 
     return (
-        <div className="App">
+        <div className="App" style={appStyle}>
             <Typography component="h1" variant="h2" className="Title">
-                Todo List
+                To Do List
             </Typography>
 
             <TodoForm
